@@ -46,9 +46,9 @@ app.delete('/todo/delete/:id', async (req, res) => {
   }
 })
 
-app.get('/todo/get', async (req, res) => {
+app.get('/todo/get/:id', async (req, res) => {
   try {
-    let response = await Todo.find({});
+    let response = await Todo.find({userId:req.params.id});
     res.status(200).json(response);
     
   } catch (err) {
